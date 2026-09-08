@@ -1,0 +1,15 @@
+# Python Cache
+__pycache__/
+*.py[cod]
+
+# Odoo Database & Log Files
+*.log
+*.sqlite
+
+# Virtual Environment
+venv/
+.venv/
+
+# IDE Configuration
+.vscode/
+.idea/
