@@ -12,4 +12,4 @@ venv/
 
 # IDE Configuration
 .vscode/
-.idea/
+.idea/ 

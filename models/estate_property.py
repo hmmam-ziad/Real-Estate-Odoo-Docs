@@ -23,13 +23,14 @@ class EstateProperty(models.Model):
 
     _name = "estate.property"
     _description = "Real Estate Property"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
 
     # --------------------------------------------------------
     # Basic Property Information
     # --------------------------------------------------------
 
     # Title or name of the property.
-    name = fields.Char(string="Title", required=True)
+    name = fields.Char(string="Title", required=True, tracking=True)
 
     # Detailed description of the property.
     description = fields.Text(string="Description")
@@ -42,10 +43,10 @@ class EstateProperty(models.Model):
 
     # Price initially expected by the seller.
     # This value must be greater than zero.
-    expected_price = fields.Float(string="Expected Price", required=True)
+    expected_price = fields.Float(string="Expected Price", required=True, tracking=True)
 
     # Final selling price of the property.
-    selling_price = fields.Float(string="Selling Price")
+    selling_price = fields.Float(string="Selling Price", tracking=True)
 
     # Number of bedrooms available in the property.
     bedrooms = fields.Integer(string="Bedrooms")
@@ -112,6 +113,7 @@ class EstateProperty(models.Model):
         required=True,
         copy=False,
         default='new',
+        tracking=True
     )
 
     # --------------------------------------------------------
