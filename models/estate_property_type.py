@@ -9,6 +9,7 @@
 # ------------------------------------------------------------
 
 from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 class EstatePropertyType(models.Model):
     """
@@ -68,3 +69,10 @@ class EstatePropertyType(models.Model):
         "UNIQUE(name)",
         "A property type name must be unique!"
     )
+
+
+    @api.ondelete(at_uninstall=False)
+    def _unlink_except_linked_properties(self):
+        for record in self:
+            if record.property_ids:
+                raise UserError("You cannot delete a property type that has existing properties!")

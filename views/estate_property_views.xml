@@ -26,6 +26,8 @@
                         <filter string="Postcode"
                             name="postcode"
                             context="{'group_by': 'postcode'}" />
+                        <filter string="Property Type" name="type"
+                            context="{'group_by': 'property_type_id'}" />
                     </group>
                 </search>
             </field>
