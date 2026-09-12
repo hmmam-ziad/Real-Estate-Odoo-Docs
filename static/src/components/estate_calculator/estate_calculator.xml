@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="estate.EstateCalculator">
+        <div class="p-3 border rounded bg-light mt-2">
+            <h6 class="text-primary fw-bold">
+                <i class="fa fa-calculator me-1"/> Mortgage Estimator
+            </h6>
+            <div class="row g-2 align-items-center mt-1">
+                <div class="col-auto">
+                    <label class="form-label mb-0 small">Years:</label>
+                    <input type="number" 
+                           class="form-control form-control-sm" 
+                           t-att-value="state.years" 
+                           t-on-input="onYearsChange" 
+                           min="1" max="30"/>
+                </div>
+                <div class="col-auto">
+                    <span class="badge bg-info text-dark p-2 mt-3">
+                        Est. Monthly: <t t-esc="monthlyPayment"/> JOD
+                    </span>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

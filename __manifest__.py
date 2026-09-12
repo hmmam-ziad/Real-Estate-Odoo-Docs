@@ -15,6 +15,12 @@
         'views/estate_property_tag_views.xml',
         'views/res_partner_views.xml',
     ],
+    "assets": {
+        "web.assets_backend": [
+            "estate/static/src/components/estate_calculator/estate_calculator.js",
+            "estate/static/src/components/estate_calculator/estate_calculator.xml",
+        ],
+    },
     'installable': True,
     'application': True,
 }
