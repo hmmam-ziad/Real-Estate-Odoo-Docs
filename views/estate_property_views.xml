@@ -206,5 +206,15 @@
             parent="estate_first_level_menu"
             action="estate_property_action" />
 
+        <record id="estate_dashboard_action" model="ir.actions.client">
+            <field name="name">Dashboard</field>
+            <field name="tag">estate_dashboard_tag</field>
+        </record>
+
+        <menuitem id="estate_dashboard_menu"
+            name="Dashboard"
+            parent="estate_menu_root"
+            action="estate_dashboard_action"
+            sequence="1" />
     </data>
 </odoo>

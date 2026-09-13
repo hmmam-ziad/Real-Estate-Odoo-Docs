@@ -19,6 +19,8 @@
         "web.assets_backend": [
             "estate/static/src/components/estate_calculator/estate_calculator.js",
             "estate/static/src/components/estate_calculator/estate_calculator.xml",
+            "estate/static/src/dashboard/estate_dashboard.js",
+            "estate/static/src/dashboard/estate_dashboard.xml",
         ],
     },
     'installable': True,

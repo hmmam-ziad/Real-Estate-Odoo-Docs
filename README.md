@@ -56,26 +56,24 @@ This module encapsulates core real estate operations including property listing,
 estate/
 ├── models/
 │   ├── estate_property.py          # Main property model & invoice triggering
-│   ├── estate_property_type.py     # Property categories & computed property counts
-│   ├── estate_property_tag.py      # Colored tags for property grouping
-│   ├── estate_property_offer.py    # Offer validation & acceptance logic
-│   └── res_partner.py              # Extended contact model with buyer properties
+│   ├── estate_property_type.py     # Property categories & computed counts
+│   ├── estate_property_tag.py      # Colored tags
+│   ├── estate_property_offer.py    # Offer validation logic
+│   └── res_partner.py              # Extended contact model
 ├── views/
 │   ├── estate_property_views.xml   # Form, List, Kanban views & Smart Buttons
 │   ├── estate_property_type_views.xml
 │   ├── estate_property_tag_views.xml
 │   ├── estate_property_offer_views.xml
-│   ├── res_partner_views.xml       # XPath inheritance views for Contacts
-│   └── estate_menus.xml            # Top-level menu structure
+│   ├── res_partner_views.xml       # XPath inheritance views
+│   └── estate_menus.xml            # Menus & Client Action definitions
 ├── static/
 │   └── src/
-│       └── components/
-│           └── estate_calculator/  # OWL Frontend Component
-│               ├── estate_calculator.js
-│               └── estate_calculator.xml
+│       ├── components/             # OWL Widgets (Mortgage Estimator)
+│       └── dashboard/              # OWL Client Action Analytics Dashboard
 ├── security/
-│   └── ir.model.access.csv         # ACL security permissions
-├── __manifest__.py                 # Dependencies (base, account, mail, web) & assets
+│   └── ir.model.access.csv         # Access Control Lists
+├── __manifest__.py                 # Assets bundle configuration
 └── __init__.py
 ```
 
