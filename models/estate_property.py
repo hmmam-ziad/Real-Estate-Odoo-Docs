@@ -98,7 +98,7 @@ class EstateProperty(models.Model):
 
     # Salesperson responsible for this property (defaults to current user).
     user_id = fields.Many2one("res.users", string="Salesperson", default=lambda self: self.env.user,)
-
+    currency_id = fields.Many2one('res.currency', string='Currency', default=lambda self: self.env.company.currency_id)
     # --------------------------------------------------------
     # Property Status
     # --------------------------------------------------------

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_property_offers">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="property">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-family: 'Helvetica Neue', Arial, sans-serif;">
+
+                        <!-- Header Section -->
+                        <div class="mt-4 mb-4"
+                            style="border-bottom: 2px solid #2c3e50; padding-bottom: 12px;">
+                            <h1 style="color: #2c3e50; font-weight: 700; margin-bottom: 4px;">
+                                <span t-field="property.name" />
+                            </h1>
+                            <div style="color: #7f8c8d; font-size: 13px;">
+                                <span t-if="property.property_type_id"
+                                    t-field="property.property_type_id.name" />
+                                <span t-if="property.state"> • </span>
+                                <span t-field="property.state" style="text-transform: capitalize;" />
+                            </div>
+                        </div>
+
+                        <!-- Price Cards -->
+                        <div class="row mt-3 mb-4">
+                            <div class="col-6">
+                                <div
+                                    style="background-color: #f8f9fa; border-radius: 8px; padding: 16px; border-left: 4px solid #3498db;">
+                                    <div
+                                        style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #7f8c8d; margin-bottom: 4px;">
+                                        Expected Price
+                                    </div>
+                                    <div style="font-size: 22px; font-weight: 700; color: #2c3e50;">
+                                        <span t-field="property.expected_price"
+                                            t-options="{'widget': 'monetary', 'display_currency': property.currency_id}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div
+                                    style="background-color: #f8f9fa; border-radius: 8px; padding: 16px; border-left: 4px solid #27ae60;">
+                                    <div
+                                        style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #7f8c8d; margin-bottom: 4px;">
+                                        Selling Price
+                                    </div>
+                                    <div style="font-size: 22px; font-weight: 700; color: #27ae60;">
+                                        <span t-if="property.selling_price"
+                                            t-field="property.selling_price"
+                                            t-options="{'widget': 'monetary', 'display_currency': property.currency_id}" />
+                                        <span t-if="not property.selling_price"
+                                            style="font-size: 14px; color: #95a5a6; font-weight: 400;">
+                                            Not sold yet
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Offers Section -->
+                        <h4 class="mt-4 mb-2"
+                            style="color: #2c3e50; font-weight: 700; border-bottom: 1px solid #ecf0f1; padding-bottom: 8px;">
+                            Offers Received
+                        </h4>
+
+                        <table class="table table-sm mt-2" t-if="property.offer_ids"
+                            style="border-collapse: collapse; width: 100%;">
+                            <thead>
+                                <tr style="background-color: #2c3e50; color: white;">
+                                    <th style="padding: 8px 12px; border: none;">Price</th>
+                                    <th style="padding: 8px 12px; border: none;">Partner</th>
+                                    <th style="padding: 8px 12px; border: none; text-align: right;">
+                                        Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="property.offer_ids" t-as="offer"
+                                    t-attf-style="background-color: #{'#f8f9fa' if offer_index % 2 == 0 else '#ffffff'};">
+                                    <td
+                                        style="padding: 8px 12px; border-bottom: 1px solid #ecf0f1; font-weight: 600;">
+                                        <span t-field="offer.price"
+                                            t-options="{'widget': 'monetary', 'display_currency': property.currency_id}" />
+                                    </td>
+                                    <td style="padding: 8px 12px; border-bottom: 1px solid #ecf0f1;">
+                                        <span t-field="offer.partner_id.name" />
+                                    </td>
+                                    <td
+                                        style="padding: 8px 12px; border-bottom: 1px solid #ecf0f1; text-align: right;">
+                                        <span
+                                            t-attf-style="padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; color: white; background-color: #{'#27ae60' if offer.status == 'accepted' else ('#e74c3c' if offer.status == 'refused' else '#f39c12')};">
+                                            <span t-field="offer.status" />
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p t-if="not property.offer_ids" class="text-muted mt-3"
+                            style="background-color: #f8f9fa; padding: 12px; border-radius: 6px; text-align: center;">
+                            No offers have been submitted for this property yet.
+                        </p>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
