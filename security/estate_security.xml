@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_real_estate" model="ir.module.category">
+        <field name="name">Real Estate</field>
+        <field name="description">Category for Real Estate Management permissions</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="group_estate_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    </record>
+
+    <record id="group_estate_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="implied_ids" eval="[(4, ref('group_estate_user'))]" />
+    </record>
+
+    <record id="base.user_admin" model="res.users">
+        <field name="groups_id" eval="[(4, ref('group_estate_manager'))]" />
+    </record>
+    <record id="base.user_root" model="res.users">
+        <field name="groups_id" eval="[(4, ref('group_estate_manager'))]" />
+    </record>
+
+    <record id="estate_property_rule_user" model="ir.rule">
+        <field name="name">User: See Personal or Available Properties Only</field>
+        <field name="model_id" ref="model_estate_property" />
+        <field name="domain_force">
+            ['|', ('user_id', '=', user.id), ('user_id', '=', False)]
+        </field>
+        <field name="groups" eval="[(4, ref('group_estate_user'))]" />
+        <field name="perm_read" eval="True" />
+        <field name="perm_write" eval="True" />
+        <field name="perm_create" eval="True" />
+        <field name="perm_unlink" eval="False" />
+    </record>
+
+    <record id="estate_property_rule_manager" model="ir.rule">
+        <field name="name">Manager: Full Access on all Properties</field>
+        <field name="model_id" ref="model_estate_property" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_estate_manager'))]" />
+    </record>
+</odoo>

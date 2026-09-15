@@ -96,6 +96,9 @@ class EstateProperty(models.Model):
     # Partner who becomes the buyer after an offer is accepted.
     buyer_id = fields.Many2one("res.partner", string="Buyer")
 
+    # Salesperson responsible for this property (defaults to current user).
+    user_id = fields.Many2one("res.users", string="Salesperson", default=lambda self: self.env.user,)
+
     # --------------------------------------------------------
     # Property Status
     # --------------------------------------------------------
