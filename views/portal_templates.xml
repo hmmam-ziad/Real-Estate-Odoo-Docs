@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_estate_offers" name="Show Property Offers"
+        inherit_id="portal.portal_my_home" priority="30">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My Property Offers</t>
+                <t t-set="url" t-value="'/my/offers'" />
+                <t t-set="placeholder_count" t-value="'property_offer_count'" />
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_offers_template" name="My Offers">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">My Submitted Offers</h5>
+                </div>
+                <div class="card-body">
+                    <t t-if="not offers">
+                        <p class="alert alert-info">You have not submitted any property offers yet.</p>
+                    </t>
+                    <t t-if="offers">
+                        <table class="table table-hover table-sm border-0">
+                            <thead>
+                                <tr class="active">
+                                    <th>Property</th>
+                                    <th>Offered Price</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="offers" t-as="offer">
+                                    <tr>
+                                        <td>
+                                            <span t-field="offer.property_id.name" />
+                                        </td>
+                                        <td>
+                                            <span t-field="offer.price" />
+                                        </td>
+                                        <td>
+                                            <span t-if="offer.status == 'accepted'"
+                                                class="badge bg-success">Accepted</span>
+                                            <span t-if="offer.status == 'refused'"
+                                                class="badge bg-danger">Refused</span>
+                                            <span t-if="not offer.status" class="badge bg-warning">In
+                                                Progress</span>
+                                        </td>
+                                        <td>
+                                            <a t-attf-href="/my/offer/#{offer.id}"
+                                                class="btn btn-sm btn-outline-primary">View</a>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_offer_detail_template" name="My Offer Detail">
+        <t t-call="portal.portal_layout">
+            <div class="container my-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-light">
+                        <h4>Offer Details - <t t-esc="offer.property_id.name" /></h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Offered Price:</strong> $<t t-esc="offer.price" /></p>
+                                <p><strong>Property Expected Price:</strong> $<t
+                                        t-esc="offer.property_id.expected_price" /></p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                    <strong>Status:</strong>
+                                    <t t-esc="offer.status or 'Pending'" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
