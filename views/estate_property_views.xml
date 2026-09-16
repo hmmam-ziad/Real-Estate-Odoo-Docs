@@ -43,21 +43,34 @@
             <field name="arch" type="xml">
                 <kanban default_group_by="property_type_id" records_draggable="false">
                     <field name="state" />
+                    <field name="image_1920" />
                     <templates>
                         <t t-name="card">
-                            <div class="oe_kanban_global_click">
-                                <div>
-                                    <strong>
-                                        <field name="name" />
-                                    </strong>
-                                </div>
-                                <div> Expected Price: <field name="expected_price" />
-                                </div>
-                                <div t-if="record.state.raw_value == 'offer_received'"> Best Price: <field
-                                        name="best_price" />
-                                </div>
-                                <div t-if="record.state.raw_value == 'offer_accepted'"> Selling
-                                    Price: <field name="selling_price" />
+                            <div
+                                t-attf-class="oe_kanban_global_click #{record.state.raw_value == 'sold' and 'opacity-50' or ''}">
+                                <div class="d-flex">
+                                    <img t-if="record.image_1920.raw_value"
+                                        t-att-src="kanban_image('estate.property', 'image_1920', record.id.raw_value)"
+                                        style="width:64px;height:64px;object-fit:cover;border-radius:4px;"
+                                        class="me-2" />
+                                    <div>
+                                        <strong>
+                                            <field name="name" />
+                                        </strong>
+                                        <span t-if="record.state.raw_value == 'sold'"
+                                            class="badge bg-success ms-1">Sold</span>
+                                        <span t-if="record.state.raw_value == 'canceled'"
+                                            class="badge bg-danger ms-1">Canceled</span>
+                                        <div> Expected Price: <field name="expected_price" />
+                                        </div>
+                                        <div t-if="record.state.raw_value == 'offer_received'"> Best
+                                            Price: <field
+                                                name="best_price" />
+                                        </div>
+                                        <div t-if="record.state.raw_value == 'offer_accepted'">
+                                            Selling Price: <field name="selling_price" />
+                                        </div>
+                                    </div>
                                 </div>
                                 <field name="tag_ids"
                                     widget="many2many_tags"
@@ -77,13 +90,18 @@
             <field name="name">estate.property.list</field>
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
-                <list string="Properties">
+                <list string="Properties"
+                    decoration-success="state == 'sold'"
+                    decoration-danger="state == 'canceled'"
+                    decoration-bf="state == 'offer_received'">
                     <field name="name" />
                     <field name="postcode" />
                     <field name="bedrooms" />
-                    <field name="expected_price" />
-                    <field name="selling_price" />
+                    <field name="expected_price" widget="monetary" />
+                    <field name="selling_price" widget="monetary" />
                     <field name="date_availability" />
+                    <field name="currency_id" column_invisible="1" />
+                    <field name="state" />
                 </list>
             </field>
         </record>
@@ -99,8 +117,10 @@
                 <form string="Property">
 
                     <header>
-                        <button name="action_post_sold" type="object" string="Sold" />
-                        <button name="action_post_cancel" type="object" string="Cancel" />
+                        <button name="action_post_sold" type="object" string="Sold"
+                            invisible="state in ('sold', 'canceled')" />
+                        <button name="action_post_cancel" type="object" string="Cancel"
+                            invisible="state in ('sold', 'canceled')" />
                         <field name="state"
                             widget="statusbar"
                             statusbar_visible="new,offer_received,offer_accepted,sold,canceled" />
@@ -116,25 +136,30 @@
                             </button>
                         </div>
 
+                        <field name="image_1920" widget="image" class="oe_avatar" />
+
                         <h1>
-                            <field name="name" />
+                            <field name="name" readonly="state in ('sold', 'canceled')" />
                         </h1>
 
                         <group>
                             <group>
-                                <field name="property_type_id" />
+                                <field name="property_type_id"
+                                    readonly="state in ('sold', 'canceled')" />
                                 <field name="tag_ids"
                                     widget="many2many_tags"
                                     options="{'color_field': 'color'}" />
                                 <field name="postcode" />
                                 <field name="date_availability" />
-                                <field name="buyer_id" />
+                                <field name="buyer_id" readonly="1" />
+                                <field name="currency_id" invisible="1" />
                             </group>
 
                             <group>
-                                <field name="expected_price" />
-                                <field name="best_price" />
-                                <field name="selling_price" widget="estate_calculator" />
+                                <field name="expected_price" widget="monetary"
+                                    readonly="state in ('sold', 'canceled')" />
+                                <field name="best_price" widget="monetary" />
+                                <field name="selling_price" widget="estate_calculator" readonly="1" />
                             </group>
                         </group>
 

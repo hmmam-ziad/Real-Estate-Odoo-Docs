@@ -29,7 +29,11 @@
             "estate/static/src/dashboard/estate_dashboard.js",
             "estate/static/src/dashboard/estate_dashboard.xml",
         ],
+        "web.assets_frontend": [
+            "estate/static/src/website/estate_website.js",
+        ],
     },
+    'license': 'LGPL-3',
     'installable': True,
     'application': True,
 }

@@ -1,0 +1,798 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* estate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-16 14:38+0000\n"
+"PO-Revision-Date: 2026-09-16 14:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.property_detail_template
+msgid ""
+"&amp;lt; Back to\n"
+"                    List"
+msgstr ""
+"&amp;lt; العودة إلى\n"
+"                    القائمة"
+
+#. module: estate
+#: model:ir.actions.report,print_report_name:estate.action_report_estate_property
+msgid "'Property - %s' % (object.name)"
+msgstr "'عقار - %s' % (object.name)"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.property_detail_template
+msgid "<strong>Bedrooms:</strong>"
+msgstr "<strong>غرف النوم:</strong>"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.property_detail_template
+msgid "<strong>Expected Price:</strong> $"
+msgstr "<strong>السعر المتوقع:</strong> $"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.property_detail_template
+msgid "<strong>Living Area:</strong>"
+msgstr "<strong>مساحة المعيشة:</strong>"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_offer_detail_template
+msgid "<strong>Offered Price:</strong> $"
+msgstr "<strong>السعر المعروض:</strong> $"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_offer_detail_template
+msgid "<strong>Property Expected Price:</strong> $"
+msgstr "<strong>السعر المتوقع للعقار:</strong> $"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_offer_detail_template
+msgid "<strong>Status:</strong>"
+msgstr "<strong>الحالة:</strong>"
+
+#. module: estate
+#: model:ir.model.constraint,message:estate.constraint_estate_property_tag_check_name_uniq
+msgid "A property tag name must be unique!"
+msgstr "يجب أن يكون اسم علامة العقار فريداً!"
+
+#. module: estate
+#: model:ir.model.constraint,message:estate.constraint_estate_property_type_check_name_uniq
+msgid "A property type name must be unique!"
+msgstr "يجب أن يكون اسم نوع العقار فريداً!"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_form
+msgid "Accept"
+msgstr "قبول"
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property_offer__status__accepted
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_offers_template
+msgid "Accepted"
+msgstr "مقابول"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_offers_template
+msgid "Action"
+msgstr "إجراء"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__message_needaction
+msgid "Action Needed"
+msgstr "يتطلب إجراء"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: estate
+#: model:ir.ui.menu,name:estate.estate_first_level_menu
+msgid "Advertisements"
+msgstr "الإعلانات"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_search
+msgid "Available"
+msgstr "متاح"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__date_availability
+msgid "Available From"
+msgstr "متاح من"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.property_list_template
+msgid "Available Properties"
+msgstr "العقارات المتاحة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__bedrooms
+msgid "Bedrooms"
+msgstr "غرف النوم"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__best_price
+msgid "Best Offer Price"
+msgstr "أفضل سعر معروض"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_kanban
+msgid "Best Price:"
+msgstr "أفضل سعر:"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/dashboard/estate_dashboard.xml:0
+#: model:ir.model.fields,field_description:estate.field_estate_property__buyer_id
+msgid "Buyer"
+msgstr "المشتري"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property__state__canceled
+msgid "Canceled"
+msgstr "ملغى"
+
+#. module: estate
+#: model:ir.module.category,description:estate.module_category_real_estate
+msgid "Category for Real Estate Management permissions"
+msgstr "فئة صلاحيات إدارة العقارات"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property_tag__color
+msgid "Color"
+msgstr "اللون"
+
+#. module: estate
+#: model:ir.model,name:estate.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__create_uid
+#: model:ir.model.fields,field_description:estate.field_estate_property_offer__create_uid
+#: model:ir.model.fields,field_description:estate.field_estate_property_tag__create_uid
+#: model:ir.model.fields,field_description:estate.field_estate_property_type__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__create_date
+#: model:ir.model.fields,field_description:estate.field_estate_property_offer__create_date
+#: model:ir.model.fields,field_description:estate.field_estate_property_tag__create_date
+#: model:ir.model.fields,field_description:estate.field_estate_property_type__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: estate
+#: model:ir.actions.client,name:estate.estate_dashboard_action
+#: model:ir.ui.menu,name:estate.estate_dashboard_menu
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__description
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__display_name
+#: model:ir.model.fields,field_description:estate.field_estate_property_offer__display_name
+#: model:ir.model.fields,field_description:estate.field_estate_property_tag__display_name
+#: model:ir.model.fields,field_description:estate.field_estate_property_type__display_name
+#: model:ir.model.fields,field_description:estate.field_res_partner__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property__garden_orientation__east
+msgid "East"
+msgstr "شرق"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/components/estate_calculator/estate_calculator.xml:0
+msgid "Est. Monthly:"
+msgstr "القسط الشهري التقديري:"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__expected_price
+#: model_terms:ir.ui.view,arch_db:estate.report_property_offers
+msgid "Expected Price"
+msgstr "السعر المتوقع"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_kanban
+msgid "Expected Price:"
+msgstr "السعر المتوقع:"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.property_list_template
+msgid "Expected Price: $"
+msgstr "السعر المتوقع: $"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__facades
+msgid "Facades"
+msgstr "الواجهات"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: estate
+#: model:ir.model.fields,help:estate.field_estate_property__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "أيقونة Font awesome مثال: fa-tasks"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__garage
+msgid "Garage"
+msgstr "كراج"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__garden
+msgid "Garden"
+msgstr "حديقة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__garden_area
+msgid "Garden Area (sqm)"
+msgstr "مساحة الحديقة (م²)"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__garden_orientation
+msgid "Garden Orientation"
+msgstr "اتجاه الحديقة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__has_message
+msgid "Has Message"
+msgstr "يحتوي على رسالة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__id
+#: model:ir.model.fields,field_description:estate.field_estate_property_offer__id
+#: model:ir.model.fields,field_description:estate.field_estate_property_tag__id
+#: model:ir.model.fields,field_description:estate.field_estate_property_type__id
+#: model:ir.model.fields,field_description:estate.field_res_partner__id
+msgid "ID"
+msgstr "المُعرّف"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: estate
+#: model:ir.model.fields,help:estate.field_estate_property__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: estate
+#: model:ir.model.fields,help:estate.field_estate_property__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا كان محددًا، فهناك رسائل جديدة تتطلب انتباهك."
+
+#. module: estate
+#: model:ir.model.fields,help:estate.field_estate_property__message_has_error
+#: model:ir.model.fields,help:estate.field_estate_property__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا كان محددًا، فهناك خطأ في تسليم بعض الرسائل."
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_offers_template
+msgid ""
+"In\n"
+"                                                Progress"
+msgstr ""
+"قيد\n"
+"                                                الإجراء"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/components/estate_calculator/estate_calculator.xml:0
+#: code:addons/estate/static/src/dashboard/estate_dashboard.xml:0
+msgid "JOD"
+msgstr "دينار أردني"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__write_uid
+#: model:ir.model.fields,field_description:estate.field_estate_property_offer__write_uid
+#: model:ir.model.fields,field_description:estate.field_estate_property_tag__write_uid
+#: model:ir.model.fields,field_description:estate.field_estate_property_type__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__write_date
+#: model:ir.model.fields,field_description:estate.field_estate_property_offer__write_date
+#: model:ir.model.fields,field_description:estate.field_estate_property_tag__write_date
+#: model:ir.model.fields,field_description:estate.field_estate_property_type__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__living_area
+msgid "Living Area (sqm)"
+msgstr "مساحة المعيشة (م²)"
+
+#. module: estate
+#: model:res.groups,name:estate.group_estate_manager
+msgid "Manager"
+msgstr "مدير"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/components/estate_calculator/estate_calculator.xml:0
+msgid "Mortgage Estimator"
+msgstr "حاسبة الرهن العقاري"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي لنشاطي"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_home_estate_offers
+msgid "My Property Offers"
+msgstr "عروضي العقارية"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_offers_template
+msgid "My Submitted Offers"
+msgstr "العروض التي قدمتها"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property_tag__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property__state__new
+msgid "New"
+msgstr "جديد"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.report_property_offers
+msgid "No offers have been submitted for this property yet."
+msgstr "لم يتم تقديم أي عروض لهذا العقار حتى الآن."
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property__garden_orientation__north
+msgid "North"
+msgstr "شمال"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.report_property_offers
+msgid "Not sold yet"
+msgstr "لم يُباع بعد"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: estate
+#: model:ir.model.fields,help:estate.field_estate_property__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: estate
+#: model:ir.model.fields,help:estate.field_estate_property__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ تسليم"
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property__state__offer_accepted
+msgid "Offer Accepted"
+msgstr "تم قبول العرض"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_offer_detail_template
+msgid "Offer Details -"
+msgstr "تفاصيل العرض -"
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property__state__offer_received
+msgid "Offer Received"
+msgstr "تم استلام عرض"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_offers_template
+msgid "Offered Price"
+msgstr "السعر المعروض"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__offer_ids
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_form
+msgid "Offers"
+msgstr "العروض"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__offer_count
+msgid "Offers Count"
+msgstr "عدد العروض"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.report_property_offers
+msgid "Offers Received"
+msgstr "العروض المستلمة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property_offer__partner_id
+#: model_terms:ir.ui.view,arch_db:estate.report_property_offers
+msgid "Partner"
+msgstr "الشريك / العميل"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__postcode
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_search
+msgid "Postcode"
+msgstr "الرمز البريدي"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/dashboard/estate_dashboard.xml:0
+#: model:ir.model.fields,field_description:estate.field_estate_property_offer__price
+#: model_terms:ir.ui.view,arch_db:estate.report_property_offers
+msgid "Price"
+msgstr "السعر"
+
+#. module: estate
+#: model:ir.actions.act_window,name:estate.estate_property_action
+#: model:ir.model.fields,field_description:estate.field_estate_property_type__property_ids
+#: model:ir.ui.menu,name:estate.estate_property_menu_action
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_tree
+msgid "Properties"
+msgstr "العقارات"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_res_partner__property_ids
+#: model:ir.model.fields,field_description:estate.field_res_users__property_ids
+msgid "Properties Bought"
+msgstr "العقارات المشتراة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property_type__property_count
+msgid "Properties Count"
+msgstr "عدد العقارات"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/dashboard/estate_dashboard.xml:0
+#: model:ir.model.fields,field_description:estate.field_estate_property_offer__property_id
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_form
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_offers_template
+msgid "Property"
+msgstr "العقار"
+
+#. module: estate
+#: model:ir.actions.report,name:estate.action_report_estate_property
+msgid "Property Details"
+msgstr "تفاصيل العقار"
+
+#. module: estate
+#: model:ir.actions.act_window,name:estate.estate_property_tag_action
+#: model:ir.ui.menu,name:estate.estate_property_tag_menu_action
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_tag_view_tree
+msgid "Property Tags"
+msgstr "علامات العقار"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__property_type_id
+#: model:ir.model.fields,field_description:estate.field_estate_property_type__name
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_search
+msgid "Property Type"
+msgstr "نوع العقار"
+
+#. module: estate
+#: model:ir.actions.act_window,name:estate.estate_property_type_action
+#: model:ir.ui.menu,name:estate.estate_property_type_menu_action
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_type_view_tree
+msgid "Property Types"
+msgstr "أنواع العقارات"
+
+#. module: estate
+#: model:ir.module.category,name:estate.module_category_real_estate
+#: model:ir.ui.menu,name:estate.estate_menu_root
+msgid "Real Estate"
+msgstr "العقارات"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/dashboard/estate_dashboard.xml:0
+msgid "Real Estate Analytics Dashboard"
+msgstr "لوحة تحليلات العقارات"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.res_partner_view_form_inherit
+msgid "Real Estate Properties"
+msgstr "عقارات الشريك"
+
+#. module: estate
+#: model:ir.model,name:estate.model_estate_property
+msgid "Real Estate Property"
+msgstr "عقار عقاري"
+
+#. module: estate
+#: model:ir.model,name:estate.model_estate_property_offer
+msgid "Real Estate Property Offer"
+msgstr "عرض سعر عقاري"
+
+#. module: estate
+#: model:ir.model,name:estate.model_estate_property_tag
+msgid "Real Estate Property Tag"
+msgstr "علامة عقار"
+
+#. module: estate
+#: model:ir.model,name:estate.model_estate_property_type
+msgid "Real Estate Property Type"
+msgstr "نوع عقار"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/dashboard/estate_dashboard.xml:0
+msgid "Recent Offers"
+msgstr "العروض الأخيرة"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_form
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property_offer__status__refused
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_offers_template
+msgid "Refused"
+msgstr "مرفوض"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل النصية القصيرة"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__user_id
+msgid "Salesperson"
+msgstr "مسؤول المبيعات"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_search
+msgid "Search Properties"
+msgstr "البحث في العقارات"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_kanban
+msgid ""
+"Selling\n"
+"                                    Price:"
+msgstr ""
+"سعر\n"
+"                                    البيع:"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__selling_price
+#: model_terms:ir.ui.view,arch_db:estate.report_property_offers
+msgid "Selling Price"
+msgstr "سعر البيع"
+
+#. module: estate
+#: model:ir.ui.menu,name:estate.estate_menu_settings
+msgid "Settings"
+msgstr "الإعدادات"
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property__state__sold
+#: model_terms:ir.ui.view,arch_db:estate.estate_property_view_form
+msgid "Sold"
+msgstr "مباع"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/dashboard/estate_dashboard.xml:0
+msgid "Sold Properties"
+msgstr "العقارات المباعة"
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property__garden_orientation__south
+msgid "South"
+msgstr "جنوب"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/dashboard/estate_dashboard.xml:0
+#: model:ir.model.fields,field_description:estate.field_estate_property__state
+#: model:ir.model.fields,field_description:estate.field_estate_property_offer__status
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_offers_template
+#: model_terms:ir.ui.view,arch_db:estate.report_property_offers
+msgid "Status"
+msgstr "الحالة"
+
+#. module: estate
+#: model:ir.model.fields,help:estate.field_estate_property__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة المستندة إلى الأنشطة\n"
+"المتأخرة: تاريخ الاستحقاق مر بالفعل\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"المخطط لها: الأنشطة المستقبلية."
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__tag_ids
+msgid "Tags"
+msgstr "العلامات"
+
+#. module: estate
+#: model:ir.model.constraint,message:estate.constraint_estate_property_check_expected_price
+msgid "The expected price must be greater than zero."
+msgstr "يجب أن يكون السعر المتوقع أكبر من الصفر."
+
+#. module: estate
+#: model:ir.model.constraint,message:estate.constraint_estate_property_check_selling_price_positive
+msgid "The selling price must be positive!"
+msgstr "يجب أن يكون سعر البيع موجباً!"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__name
+msgid "Title"
+msgstr "العنوان"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__total_area
+msgid "Total Area (sqm)"
+msgstr "المساحة الإجمالية (م²)"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/dashboard/estate_dashboard.xml:0
+msgid "Total Properties"
+msgstr "إجمالي العقارات"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/dashboard/estate_dashboard.xml:0
+msgid "Total Sales Volume"
+msgstr "إجمالي حجم المبيعات"
+
+#. module: estate
+#: model:ir.model.fields,help:estate.field_estate_property__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي المسجل."
+
+#. module: estate
+#: model:res.groups,name:estate.group_estate_user
+msgid "User"
+msgstr "مستخدم"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_offers_template
+msgid "View"
+msgstr "عرض"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.property_list_template
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+#. module: estate
+#: model:ir.model.fields,field_description:estate.field_estate_property__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع الإلكتروني"
+
+#. module: estate
+#: model:ir.model.fields,help:estate.field_estate_property__website_message_ids
+msgid "Website communication history"
+msgstr "سجل تواصل الموقع الإلكتروني"
+
+#. module: estate
+#: model:ir.model.fields.selection,name:estate.selection__estate_property__garden_orientation__west
+msgid "West"
+msgstr "غرب"
+
+#. module: estate
+#. odoo-javascript
+#: code:addons/estate/static/src/components/estate_calculator/estate_calculator.xml:0
+msgid "Years:"
+msgstr "السنوات:"
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.portal_my_offers_template
+msgid "You have not submitted any property offers yet."
+msgstr "لم تقم بتقديم أي عروض عقارية حتى الآن."
+
+#. module: estate
+#: model_terms:ir.ui.view,arch_db:estate.property_detail_template
+msgid "sq m"
+msgstr "م²"

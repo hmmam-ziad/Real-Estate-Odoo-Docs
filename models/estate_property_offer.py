@@ -7,8 +7,8 @@
 #               property offer information.
 # ------------------------------------------------------------
 
-from odoo import fields, models
-from odoo.exceptions import UserError
+from odoo import api, fields, models
+from odoo.exceptions import UserError, ValidationError
 
 class EstatePropertyOffer(models.Model):
     """ 
@@ -49,6 +49,46 @@ class EstatePropertyOffer(models.Model):
     # Deleting the property automatically removes its related offers.
     property_id = fields.Many2one("estate.property", string="Property", required=True, ondelete="cascade")
 
+    # --------------------------------------------------------
+    # Database Constraints
+    # --------------------------------------------------------
+
+    # Prevent an offer amount of zero or less from ever being stored.
+    _check_price_positive = models.Constraint(
+        "CHECK(price > 0)",
+        "The offer price must be strictly positive."
+    )
+
+    # --------------------------------------------------------
+    # CRUD Overrides
+    # --------------------------------------------------------
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        """
+        Create new offers and keep the related property's status and
+        offers in sync.
+
+        When a property receives its first offer it moves to the
+        "Offer Received" state. A new offer is also rejected if it is
+        lower than the current best offer already submitted for the
+        same property, matching normal negotiation behaviour.
+        """
+        for vals in vals_list:
+            if vals.get("property_id"):
+                prop = self.env["estate.property"].browse(vals["property_id"])
+                if prop.state in ("sold", "canceled"):
+                    raise UserError("You cannot make an offer on a property that is sold or canceled.")
+                if prop.offer_ids and vals.get("price", 0) <= prop.best_price:
+                    raise ValidationError(
+                        f"The offer must be higher than the current best offer ({prop.best_price})."
+                    )
+        offers = super().create(vals_list)
+        offers.mapped("property_id").filtered(
+            lambda p: p.state == "new"
+        ).write({"state": "offer_received"})
+        return offers
+
     # -------------------------------------------------------- 
     # Offer Actions 
     # --------------------------------------------------------
@@ -68,6 +108,11 @@ class EstatePropertyOffer(models.Model):
                 raise UserError("An offer for this property is already accepted.")
             # Mark the current offer as accepted.
             record.status = "accepted"
+
+            # Automatically refuse every other pending offer on the
+            # same property, since only one offer can win.
+            other_offers = record.property_id.offer_ids - record
+            other_offers.filtered(lambda o: o.status != "refused").write({"status": "refused"})
 
             # Update the property's selling price with the accepted offer.
             record.property_id.selling_price = record.price

@@ -66,6 +66,9 @@ class EstateProperty(models.Model):
     # Size of the garden measured in square meters.
     garden_area = fields.Integer(string="Garden Area (sqm)")
 
+    # Main photo of the property, shown on the website and kanban card.
+    image_1920 = fields.Image(string="Photo", max_width=1920, max_height=1920)
+
     # --------------------------------------------------------
     # Computed Fields
     # --------------------------------------------------------
@@ -222,8 +225,13 @@ class EstateProperty(models.Model):
             if record.state == 'canceled':
                 raise UserError("Canceled properties cannot be marked as sold.")
             
-            # Find an available sales journal for the customer invoice.
-            journal = self.env["account.journal"].search([("type", "=", "sale")], limit=1)
+            # Find an available sales journal for the customer invoice,
+            # scoped to the current company to avoid picking a journal
+            # that belongs to a different company in multi-company setups.
+            journal = self.env["account.journal"].search([
+                ("type", "=", "sale"),
+                ("company_id", "=", self.env.company.id),
+            ], limit=1)
 
             # Prepare the invoice values for the sold property.
             invoice_vals = {
@@ -307,3 +315,31 @@ class EstateProperty(models.Model):
                         "The selling price cannot be lower than 90% of the expected price! "
                         "You must reduce the expected price if you want to accept this offer."
                     )
+
+    @api.constrains("garden", "garden_area", "garden_orientation")
+    def _check_garden_fields(self):
+        """
+        Ensure garden details are consistent.
+
+        A property marked as having a garden must define both a garden
+        area and an orientation, since these values are meaningless
+        (and misleading on the website) when left empty.
+        """
+        for record in self:
+            if record.garden and (not record.garden_area or not record.garden_orientation):
+                raise ValidationError(
+                    "Please set both the garden area and orientation for a property with a garden."
+                )
+
+    # --------------------------------------------------------
+    # Website Helpers
+    # --------------------------------------------------------
+
+    def website_can_receive_offers(self):
+        """
+        Return True if the property is still open for new offers
+        (used by the website controller to decide whether to show
+        the "Make an Offer" form on the public property page).
+        """
+        self.ensure_one()
+        return self.state in ("new", "offer_received")
