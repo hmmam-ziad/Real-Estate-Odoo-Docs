@@ -70,7 +70,7 @@ class EstateController(http.Controller):
             'can_offer': record.website_can_receive_offers(),
         })
 
-    @http.route('/api/v1/properties', type='json', auth='public', methods=['GET'], csrf=False)
+    @http.route('/api/v1/properties', type='jsonrpc', auth='public', methods=['GET'], csrf=False)
     def api_get_properties(self, **kw):
         properties = request.env['estate.property'].sudo().search_read(
             domain=[('state', 'in', OPEN_STATES)],
@@ -82,7 +82,7 @@ class EstateController(http.Controller):
             'data': properties,
         }
 
-    @http.route('/api/v1/property/offer', type='json', auth='public', methods=['POST'], csrf=False)
+    @http.route('/api/v1/property/offer', type='jsonrpc', auth='public', methods=['POST'], csrf=False)
     def api_create_offer(self, property_id, price, partner_name=None, partner_email=None, **kw):
         """
         Create an offer from the public website.
